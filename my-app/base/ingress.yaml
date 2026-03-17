@@ -3,9 +3,9 @@ kind: Ingress
 metadata:
   name: hello-world-ingress
   namespace: dev
-  annotations:
-    kubernetes.io/ingress.class: traefik
+
 spec:
+  ingressClassName: traefik
   rules:
   - host: hello-world.local
     http:
