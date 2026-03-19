@@ -21,6 +21,17 @@ spec:
               - grafana.local
             path: /
             pathType: Prefix
+        prometheus:
+          prometheusSpec:
+            serviceMonitorSelectorNilUsesHelmValues: false
+            podMonitorSelectorNilUsesHelmValues: false
+          ingress:
+            enabled: true
+            ingressClassName: traefik
+            hosts:
+              - prometheus.local
+            path: /
+            pathType: Prefix
   destination:
     server: https://kubernetes.default.svc
     namespace: monitoring
